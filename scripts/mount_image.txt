@@ -1,0 +1,9 @@
+#Create
+losetup /dev/loop10 ubuntu.img
+kpartx -a /dev/loop10
+mount /dev/mapper/loop10p1 /mnt
+
+#Destroy
+killall qemu-nbd
+kpartx -d /dev/loop10
+losetup -d /dev/loop10
